@@ -2,25 +2,34 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Header from '@/Components/Header'
 import Cart from '@/Components/Cart'
+import { navLinks } from '@/Components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   };
   return (
     <div className={`bg-white text-black ${inter.className}`}>
       <Header />
       <div className="grid lg:grid-cols-12">
         <div className="lg:col-span-9">
-          products
+          {
+            navLinks.map(l => <section className='h-screen' id={l.split(" ").join("")}>
+              <h1>{l}</h1>
+            </section>)
+          }
         </div>
         <div className="lg:col-span-3">
           <Cart />
         </div>
       </div>
-      <button className="bg-gray-400 duration-200 hover:bg-pink-500 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full absolute bottom-10 right-10" onClick={() => scrollToTop()}>
+      <button className="bg-gray-400 duration-200 hover:bg-pink-500 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full fixed bottom-10 right-10" onClick={() => scrollToTop()}>
         &#9650;
       </button>
 
