@@ -25,10 +25,10 @@ export default function Home() {
           </div>
         <div className="lg:col-span-9">
           {
-            navLinks.map((l, index) => <section className='space-y-10 my-20  w-3/4 mx-auto ' id={l.title.split(" ").join("")}>
+            navLinks.map((l, index) => <section key={index} className='space-y-10 my-20  w-3/4 mx-auto ' id={l.title.split(" ").join("")}>
               <h1 className='font-bold text-gray-700 text-2xl border-b pb-4'>{l.title}</h1>
               <div className="grid lg:grid-cols-2 gap-5">{
-                l.data.map(() => <ProductCard />)
+                l.data.map((item, index) => <ProductCard key={index} />)
               }</div>
             </section>)
           }
