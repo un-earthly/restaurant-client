@@ -23,6 +23,9 @@ export default function Home() {
       behavior: 'smooth'
     });
   };
+
+
+  // deploy
   return (
     <div className={`bg-white relative text-black ${inter.className}`}>
       <div className="grid lg:grid-cols-12">
